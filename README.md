@@ -21,11 +21,17 @@ Email Sender is a Django project that allows you to send emails easily. It provi
 
 ## Installation
 
-1. Clone the repository:
+1. Make sure you have python and pip installed
+
+2. install django:
+   ```shell
+   pip install django
+
+3. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/emailsender.git
+   git clone https://github.com/Uglypr1nces/emailsender.git
 
-2. Start project:
+4. Start project:
     ```shell
     python manage.py runserver
