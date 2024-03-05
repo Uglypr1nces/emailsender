@@ -17,7 +17,7 @@ Email Sender is a Django project that allows you to send emails easily. It provi
 - Compose and send emails
 - Supports multiple recipients
 - Customizable email templates
-- Attachments support
+- Attachments support [NOT YET]
 
 ## Installation
 
