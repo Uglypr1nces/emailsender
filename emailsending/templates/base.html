@@ -29,7 +29,19 @@
             <input type = "text" id = "message" name = "message">
 
         </div>
+
+        <div id="color-change">
+            <p class="situation">Nothing yet...</p>
+        </div>
+
         <script>
+            function changebg(color) {
+                document.getElementById("color-change").style.backgroundColor = color;
+            }
+            function changetext(message)
+            {
+                document.getElementById("color-change").innerHTML = message;
+            }
             function sendemail() {
                 var reciever_email = document.getElementById("email").value;
                 var subject = document.getElementById("subject").value;
