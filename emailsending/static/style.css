@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+}
+
+.reciever{
+    color: #333;
+    border: 3px solid #fff;
+    padding: 20px;
+    width: 40%;
+}
+
+.sender{
+    text-align: center;
+
+    color: #333;
+    width: 50%;
+    float: right;
+    padding: 20px;
+    border: 2px solid #fff;
+}

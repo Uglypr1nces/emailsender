@@ -4,5 +4,6 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='')
+    path('', views.index, name=''),
+    path('send_email', views.send_email, name='send_email')
 ]

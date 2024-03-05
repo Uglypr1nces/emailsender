@@ -1,28 +1,57 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
+    <title>Contact</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    
+    <h1>Emailsender</h1>
     <main>
-        <h2>About Me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id aliquam luctus, urna nunc tincidunt nunc, id tincidunt nunc nunc id nunc. Sed auctor, nunc id aliquam luctus, urna nunc tincidunt nunc, id tincidunt nunc nunc id nunc.</p>
+        <div class = "sender">
+            <p>Your Email:</p>
+            <label for="selfemail"></label>
+            <input type = "text" id = "selfemail" name = "selfemail">   
+
+            <button onclick="sendemail()">Send</button>
+        </div>
+
+        <div class="reciever">
+            <p>Send email to:</p>
+            <label for="email"></label>
+            <input type = "text" id = "email" name = "email">   
+
+            <p>Subject:</p>
+            <label for="subject"></label>
+            <input type = "text" id = "subject" name = "subject">
+
+            <p>Message:</p>
+            <label for="message"></label>
+            <input type = "text" id = "message" name = "message">
+        </div>
+        <script>
+            function sendemail() {
+                var self_email = document.getElementById("selfemail").value;
+                var reciever_email = document.getElementById("email").value;
+                var subject = document.getElementById("subject").value;
+                var message = document.getElementById("message").value;
+
+                console.log("Self Email:", self_email);
+                console.log("Receiver Email:", reciever_email);
+                console.log("Subject:", subject);
+                console.log("Message:", message);
+
+                // Use Ajax to send a request to the server when the button is clicked
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "{% url 'send_email' %}", true);
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}"); // Add CSRF token
+                xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xhr.send(JSON.stringify({ self_email: self_email, reciever_email: reciever_email, subject: subject, message: message}));
+            }
+        </script>
     </main>
-    
     <footer>
-        <p>&copy; 2022 My Website. All rights reserved.</p>
+        <p>© 2021 Emailsender</p>
     </footer>
 </body>
 </html>
