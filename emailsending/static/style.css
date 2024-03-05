@@ -20,3 +20,21 @@ h1{
     padding: 20px;
     border: 2px solid #fff;
 }
+.my-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    margin-top: 0px;
+}
+.send-button{
+    float: right;
+    border-radius: 100px;
+    padding: 10px;
+    background-color: #333;
+    color: #8d2525;
+    cursor: pointer;
+    border: none;
+    margin-top: 30px;
+    width: 100px;
+    height: 100px;
+}

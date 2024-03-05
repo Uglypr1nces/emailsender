@@ -9,17 +9,16 @@
     <h1>Emailsender</h1>
     <main>
         <div class = "sender">
-            <p>Your Email:</p>
-            <label for="selfemail"></label>
-            <input type = "text" id = "selfemail" name = "selfemail">   
-
-            <button onclick="sendemail()">Send</button>
+            <h3>MADE BY UGLYPRINCESS</h3>
+            <img src="{%static 'myimg.png'%}" alt="myimg" class="my-img">
         </div>
 
         <div class="reciever">
             <p>Send email to:</p>
             <label for="email"></label>
             <input type = "text" id = "email" name = "email">   
+
+            <button onclick="sendemail()" class="send-button">Send</button>
 
             <p>Subject:</p>
             <label for="subject"></label>
@@ -28,15 +27,14 @@
             <p>Message:</p>
             <label for="message"></label>
             <input type = "text" id = "message" name = "message">
+
         </div>
         <script>
             function sendemail() {
-                var self_email = document.getElementById("selfemail").value;
                 var reciever_email = document.getElementById("email").value;
                 var subject = document.getElementById("subject").value;
                 var message = document.getElementById("message").value;
 
-                console.log("Self Email:", self_email);
                 console.log("Receiver Email:", reciever_email);
                 console.log("Subject:", subject);
                 console.log("Message:", message);
@@ -46,12 +44,9 @@
                 xhr.open("POST", "{% url 'send_email' %}", true);
                 xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}"); // Add CSRF token
                 xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-                xhr.send(JSON.stringify({ self_email: self_email, reciever_email: reciever_email, subject: subject, message: message}));
+                xhr.send(JSON.stringify({reciever_email: reciever_email, subject: subject, message: message}));
             }
         </script>
     </main>
-    <footer>
-        <p>© 2021 Emailsender</p>
-    </footer>
 </body>
 </html>
